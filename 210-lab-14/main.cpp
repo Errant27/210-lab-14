@@ -11,93 +11,85 @@ private:
     int green;
     
 public:
-    void setRed(int r) {
-        red = r;
-    }
+    void setRed(int r) { red = r; }    // Setter Functions
+    void setBlue(int b) { blue = b; }
+    void setGreen(int g) { green = g; }
     
-    void setBlue(int b) {
-        blue = b;
-    }
+    int getRed() { return red; }    // Getter Functions
+    int getBlue() { return blue; }
+    int setGreen() { return green; }
     
-    void setGreen(int g) {
-        green = g;
-    }
-    
-    int getRed() {
-        return red;
-    }
-    
-    int getBlue() {
-        return blue;
-    }
-    
-    int setGreen() {
-        return green;
-    }
-    
-    void print_colors() {
+    void print_colors() {     // Print Function
         cout << "R: " << red << endl;
-        cout << "B: " << blue << endl;
         cout << "G: " << green << endl;
+        cout << "B: " << blue << endl;
     }
     
 }; // End of class
 
-int random_num();
-
+int gen_random_num();     // Function prototype to generate random number
 
 int main()
 {
-    int n;
-    Color colorOne;
+    int n;    // int variable to store a random number
+    Color colorOne;     // Color objects initiaized
     Color colorTwo;
     Color colorThree;
+    Color colorFour;
     
-    // Set Reds
-    n = random_num();
-    colorOne.setRed(n);
-    n = random_num();
+    // Set Reds sequence
+    n = gen_random_num();     // Random number stored in n from random number function
+    colorOne.setRed(n);     // random number assigned to Color object's color variable via respective set function
+    n = gen_random_num();
     colorTwo.setRed(n);
-    n = random_num();
+    n = gen_random_num();
     colorThree.setRed(n);
+    n = gen_random_num();
+    colorFour.setRed(n);
     
-    // Set Blues
-    n = random_num();
-    colorOne.setBlue(n);
-    n = random_num();
-    colorTwo.setBlue(n);
-    n = random_num();
-    colorThree.setBlue(n);
-    
-    // Set Greens
-    n = random_num();
+    // Set Greens sequence
+    n = gen_random_num();    // Same logic as setting reds
     colorOne.setGreen(n);
-    n = random_num();
+    n = gen_random_num();
     colorTwo.setGreen(n);
-    n = random_num();
+    n = gen_random_num();
     colorThree.setGreen(n);
+    n = gen_random_num();
+    colorFour.setGreen(n);
     
+    // Set Blues sequence
+    n = gen_random_num();    // Same logic as setting greens & reds
+    colorOne.setBlue(n);
+    n = gen_random_num();
+    colorTwo.setBlue(n);
+    n = gen_random_num();
+    colorThree.setBlue(n);
+    n = gen_random_num();
+    colorFour.setBlue(n);
     
-    cout << "Color 1\n";
+    cout << "Color 1\n";    // Each color outputted via the print class function
     colorOne.print_colors();
-    cout << endl;
+    cout << "---------" << endl;
     cout << "Color 2\n";
     colorTwo.print_colors();
-    cout << endl;
+    cout << "---------" << endl;
     cout << "Color 3\n";
     colorThree.print_colors();
+    cout << "---------" << endl;
+    cout << "Color 4\n";
+    colorFour.print_colors();
     
     return 0;
 }
 
 
-int random_num()
+int gen_random_num()     // Function definition to generate random number
 {
     int num;
     
     random_device randNum;
-    uniform_int_distribution<int>range(1, 255);
-    num = range(randNum);
+    uniform_int_distribution<int>range(1, 175);
+    num = range(randNum);    // Random number is generated and stored in num
     
-    return num;
+    return num;     // random bumer returned
 }
