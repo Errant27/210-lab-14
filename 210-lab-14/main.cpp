@@ -6,7 +6,7 @@ using namespace std;
 class Color
 {
 private:
-    int red;
+    int red;    // Private member variables for the red, green & blue values
     int blue;
     int green;
     
@@ -24,8 +24,7 @@ public:
         cout << "G: " << green << endl;
         cout << "B: " << blue << endl;
     }
-    
-}; // End of class
+};    // End of class
 
 int gen_random_num();     // Function prototype to generate random number
 
@@ -67,7 +66,7 @@ int main()
     n = gen_random_num();
     colorFour.setBlue(n);
     
-    cout << "Color 1\n";    // Each color outputted via the print class function
+    cout << "Color 1\n";    // Each color outputted via the print_colors member function
     colorOne.print_colors();
     cout << "---------" << endl;
     cout << "Color 2\n";
@@ -88,8 +87,8 @@ int gen_random_num()     // Function definition to generate random number
     int num;
     
     random_device randNum;
-    uniform_int_distribution<int>range(1, 175);
+    uniform_int_distribution<int>range(0, 255);
     num = range(randNum);    // Random number is generated and stored in num
     
-    return num;     // random bumer returned
+    return num;     // random number returned
 }
